@@ -1,7 +1,7 @@
 // Handshake
 
 void Handshake(){
-  //digitalWrite(GLED,HIGH); 
+  digitalWrite(GLED,HIGH); 
 
   HPacket.id = 0;
   HPacket.M1 = 3;

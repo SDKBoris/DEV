@@ -23,8 +23,8 @@ void Indicators() {
 }
 
 void initLEDS() {
-  //pinMode(GLED,OUTPUT);
-  //digitalWrite(GLED,HIGH);
+  pinMode(GLED,OUTPUT);
+  digitalWrite(GLED,HIGH);
 
   //pinMode(YLED,OUTPUT);
   //digitalWrite(YLED,HIGH);
@@ -43,7 +43,7 @@ void initLEDS() {
 }
 
 void LEDSAllOff() {
-  //digitalWrite(GLED,LOW);
+  digitalWrite(GLED,LOW);
   //digitalWrite(YLED,LOW);
   //digitalWrite(RLED,LOW);
   //digitalWrite(SASLED,LOW);

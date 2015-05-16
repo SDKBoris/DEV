@@ -25,7 +25,7 @@ LiquidCrystal lcd1(7, 12, 8, 9, 10, 11);
 
 //-------------------------------
 //pins for LEDs
-//#define GLED 5
+#define GLED 6
 //#define YLED 6
 //#define RLED 7
 //#define RCSLED 12
