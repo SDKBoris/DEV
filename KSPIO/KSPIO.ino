@@ -1,8 +1,9 @@
 #include <LcdBarGraph.h>
-#include <LiquidCrystal.h>
-#include <AccelStepper.h>
-#include <Stepper.h>
 #include <Servo.h>
+#include <Stepper.h>
+#include <LcdBarGraph.h>
+#include <LiquidCrystal.h>
+
 //Pin List
 //DPin0   Shared Stepper Control
 //DPin1   Shared Stepper Control
@@ -18,10 +19,9 @@
 //DPin11  LCD DB7
 //DPin12  LCD1 Enable
 //DPin13  LCD2 Enable
-AccelStepper stepper1(AccelStepper::FULL4WIRE, 0, 1, 2, 3, true);
-AccelStepper stepper2(AccelStepper::FULL4WIRE, 0, 1, 2, 3, true);
-LiquidCrystal lcd1(7, 12, 8, 9, 10, 11);
 
+LiquidCrystal lcd1(7, 12, 8, 9, 10, 11);
+LcdBarGraph lbg(&lcd1,20,0,0);
 
 //-------------------------------
 //pins for LEDs
@@ -167,10 +167,14 @@ int OldValue = 0;
 int NewValue = 0;
 int StepPosition = 0;
 int StepCount;
+int Percentage = 0;
 
 HandShakePacket HPacket;
 VesselData VData;
 ControlPacket CPacket;
+
+
+
 
 void setup(){
   Serial.begin(38400);
@@ -178,6 +182,8 @@ void setup(){
   initLEDS();
   InitTxPackets();
   controlsInit();
+  
+  
 
   LEDSAllOff(); 
  
@@ -187,12 +193,26 @@ void setup(){
 
 void loop()
 {  
-lcd1.setCursor(2,0);
-lcd1.print(VData.AP);
-lcd1.setCursor(String(VData.AP).length()+2,0);
-lcd1.print("M");
-}
+  input();   //Calls Input File
+  output();  //Calls Output File
+    
+    int FuelPercentage = ((VData.LiquidFuel/VData.LiquidFuelTot)*100);
 
+//  lcd1.setCursor(0,0);
+//  lcd1.print("AP:   ");
+//  lcd1.print(VData.AP);
+//  lcd1.print("M");
+//  lcd1.print("      ");
+//  lcd1.setCursor(0,1);
+//  lcd1.print("RALT: ");
+//  lcd1.print(VData.RAlt);
+//  lcd1.print("M");
+//  lcd1.print("    ");
+   
+    lcd1.setCursor(0,0);
+    lbg.drawValue(FuelPercentage,100);
+
+}
 
 
 

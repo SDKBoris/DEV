@@ -8,7 +8,7 @@ void output() {
 }
 
 void controls() {
-  if (Connected) {
+  //if (Connected) {
 
     //if (digitalRead(SASPIN))  //--------- This is how you do main controls
       //MainControls(SAS, HIGH);
@@ -29,7 +29,7 @@ void controls() {
     //CPacket.Throttle = constrain(map(analogRead(THROTTLEPIN),THROTTLEDB,1024-THROTTLEDB,0,1000),0, 1000);
 
     //KSPBoardSendData(details(CPacket));
-  }
+  //}
 }
 
 void controlsInit() {
