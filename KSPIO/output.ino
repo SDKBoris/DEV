@@ -26,9 +26,9 @@ void controls() {
       //ControlGroups(1, LOW);      
 
     //This is an example of reading analog inputs to an axis, with deadband and limits
-    CPacket.Throttle = constrain(map(analogRead(THROTTLEPIN),THROTTLEDB,1024-THROTTLEDB,0,1000),0, 1000);
+    //CPacket.Throttle = constrain(map(analogRead(THROTTLEPIN),THROTTLEDB,1024-THROTTLEDB,0,1000),0, 1000);
 
-    KSPBoardSendData(details(CPacket));
+    //KSPBoardSendData(details(CPacket));
   }
 }
 

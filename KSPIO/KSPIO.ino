@@ -33,19 +33,19 @@ LiquidCrystal lcd1(7, 12, 8, 9, 10, 11);
 //-------------------------------
 //pins for input
 
-#define THROTTLEPIN 0
+//#define THROTTLEPIN 0
 
-#define THROTTLEDB 4 //Throttle axis deadband
+//#define THROTTLEDB 4 //Throttle axis deadband
 
 //Input enums
-#define SAS 7
-#define RCS 6
-#define LIGHTS 5
-#define GEAR 4
+//#define SAS 7
+//#define RCS 6
+//#define LIGHTS 5
+//#define GEAR 4
 //#define BRAKES 3
-#define PRECISION 2
-#define ABORT 1
-#define STAGE 0
+//#define PRECISION 2
+//#define ABORT 1
+//#define STAGE 0
 
 //Action group statuses
 #define AGSAS      0
