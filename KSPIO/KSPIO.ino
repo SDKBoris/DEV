@@ -1,7 +1,7 @@
 #include <LcdBarGraph.h>
+#include <AccelStepper.h>
 #include <Servo.h>
 #include <Stepper.h>
-#include <LcdBarGraph.h>
 #include <LiquidCrystal.h>
 
 //Pin List
