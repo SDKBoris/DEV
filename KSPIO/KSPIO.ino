@@ -12,15 +12,20 @@
 //DPin4   Stepper1 Enable
 //DPin5   Stepper2 Enable
 //DPin6   Stepper3 Enable
-//DPin7   LCD RS
-//DPin8   LCD DB4
-//DPin9   LCD DB5
-//DPin10  LCD DB6
-//DPin11  LCD DB7
-//DPin12  LCD1 Enable
-//DPin13  LCD2 Enable
+//DPin50  LCD RS
+//DPin40  LCD DB0
+//DPin41  LCD DB1
+//DPin42  LCD DB2
+//DPin43  LCD DB3
+//DPin44  LCD DB4
+//DPin45  LCD DB5
+//DPin46  LCD DB6
+//DPin47  LCD DB7
+//DPin51  LCD1 Enable
+//DPin52  LCD2 Enable
 
-LiquidCrystal lcd1(7, 12, 8, 9, 10, 11);
+LiquidCrystal lcd1(50, 51, 40, 41, 42, 43, 44, 45, 46, 47);
+LiquidCrystal lcd2(50, 52, 40, 41, 42, 43, 44, 45, 46, 47);
 LcdBarGraph lbg(&lcd1,20,0,0);
 
 //-------------------------------
@@ -179,6 +184,7 @@ ControlPacket CPacket;
 void setup(){
   Serial.begin(38400);
   lcd1.begin(20,4);
+  lcd2.begin(16,2);
   initLEDS();
   InitTxPackets();
   controlsInit();
@@ -211,7 +217,25 @@ void loop()
    
     lcd1.setCursor(0,0);
     lbg.drawValue(FuelPercentage,100);
+    lcd1.setCursor(0,1);
+    lcd1.print(FuelPercentage);
+    lcd1.print("      ");
+    lcd1.setCursor(0,2);
+    lcd1.print(VData.Lat);
+    lcd1.print("      ");
+    lcd1.setCursor(0,3);
+    lcd1.print(VData.Lon);
+    lcd1.print("      ");   
+    
+    
+    lcd2.setCursor(0,0);
+    lcd2.print(VData.AP);
+    lcd2.setCursor(0,1);
+    lcd2.print(VData.PE);
+    
 
+
+    
 }
 
 
